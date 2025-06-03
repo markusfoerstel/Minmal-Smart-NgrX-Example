@@ -1,6 +1,8 @@
+import { EntityState } from '@ngrx/entity';
+import { SmartNgRXRowBase } from '@smarttools/smart-ngrx';
 
 
-export interface Encounter{
+export interface Encounter extends SmartNgRXRowBase {
     id: string;
     encounter_id: number;
     instance: number;
@@ -10,3 +12,5 @@ export interface Encounter{
     short_name: string;
     url: string;
 }
+
+export type EncounterEntity = EntityState<SmartNgRXRowBase & Encounter>;

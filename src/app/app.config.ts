@@ -6,8 +6,7 @@ import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { encounterEffectsServiceToken } from './encounter/encounter-effects.service-token';
 import { EncounterEffectsService } from './encounter/encountereffects.service';
-import { provideSmartFeatureClassicEntities, provideSmartNgRX } from '@smarttools/smart-ngrx';
-import { encounterDefinition } from './encounter/encounter-definition';
+import { provideSmartNgRX } from '@smarttools/smart-ngrx';
 import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
@@ -21,7 +20,6 @@ export const appConfig: ApplicationConfig = {
     provideStore(),
     provideEffects(),
     provideSmartNgRX({}),
-    provideSmartFeatureClassicEntities('encounter', [encounterDefinition]),
     provideRouter(routes),
   ]
 };

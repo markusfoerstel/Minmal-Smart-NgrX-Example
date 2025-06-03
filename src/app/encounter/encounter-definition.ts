@@ -3,7 +3,6 @@ import { SmartEntityDefinition } from '@smarttools/smart-ngrx';
 import { Encounter } from './encounter';
 import { encounterEffectsServiceToken } from './encounter-effects.service-token';
 
-
 export const encounterDefinition: SmartEntityDefinition<Encounter> = {
   entityName: 'encounters',
   effectServiceToken: encounterEffectsServiceToken,

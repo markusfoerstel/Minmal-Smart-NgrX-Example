@@ -14,7 +14,6 @@ import { Store } from '@ngrx/store';
 })
 export class AppComponent {
   title = 'test';
-  // encounters$ = this.store.select(state => Object.values(state['encounters']?.entities ?? {}));
 
   constructor(private store: Store) {}
 }
