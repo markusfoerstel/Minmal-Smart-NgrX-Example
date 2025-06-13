@@ -10,7 +10,7 @@ export const encounterDefinition: SmartEntityDefinition<Encounter> = {
   defaultRow: (id) => ({
     id,
     encounter_id: 0,
-    instance: 0,
+    instance: [],
     name: '',
     order_index: 0,
     icon: '',

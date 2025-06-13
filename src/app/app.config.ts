@@ -9,6 +9,8 @@ import { EncounterEffectsService } from './encounter/encountereffects.service';
 import { provideSmartNgRX } from '@smarttools/smart-ngrx';
 import { provideHttpClient } from '@angular/common/http';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { instanceEffectsServiceToken } from './instance/instance-effects.service-token';
+import { InstanceEffectsService } from './instance/instanceeffects.service';
 
 
 export const appConfig: ApplicationConfig = {
@@ -17,6 +19,10 @@ export const appConfig: ApplicationConfig = {
     {
       provide: encounterEffectsServiceToken,
       useClass: EncounterEffectsService,
+    },
+{
+      provide: instanceEffectsServiceToken,
+      useClass: InstanceEffectsService,
     },
     provideHttpClient(),
     importProvidersFrom(
