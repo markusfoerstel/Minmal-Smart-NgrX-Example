@@ -7,14 +7,3 @@ export const selectInstanceEntities = createSmartSelector<Instance>(
   featureName,
   'instances',
 );
-
-// export const selectInstances = createSmartSelector(selectInstanceEntities, [
-//   {
-//     childFeature: featureName,
-//     childEntity: 'locations',
-//     parentField: 'locations',
-//     parentFeature: featureName,
-//     parentEntity: 'top',
-//     childSelector: selectLocationsDepartments,
-//   },
-// ]);
