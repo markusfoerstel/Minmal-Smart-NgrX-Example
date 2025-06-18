@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { provideSmartFeatureClassicEntities } from '@smarttools/smart-ngrx';
 import { encounterDefinition } from './encounter/encounter-definition';
 import { instanceDefinition } from './instance/instance-definition';
+import { expansionsDefinition } from './expansion/expansion-definition';
 
 export const routes: Routes = [
   {
@@ -11,8 +12,9 @@ export const routes: Routes = [
     },
     providers: [
       provideSmartFeatureClassicEntities('tree-standard', [
+        expansionsDefinition,
+        instanceDefinition,
         encounterDefinition,
-        instanceDefinition
       ]),
     ],
   },

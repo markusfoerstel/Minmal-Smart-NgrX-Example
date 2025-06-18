@@ -6,7 +6,6 @@ import { instanceEffectsServiceToken } from './instance-effects.service-token';
 export const instanceDefinition: SmartEntityDefinition<Instance> = {
   entityName: 'instances',
   effectServiceToken: instanceEffectsServiceToken,
-  isInitialRow: true,
   defaultRow: (id) => ({
     id,
     expansion: 0,
@@ -18,6 +17,6 @@ export const instanceDefinition: SmartEntityDefinition<Instance> = {
     icon: '',
     short_name: '',
     total_bosses: 0,
-    children: [],
+    encounters: [] as string[],
   }),
 };

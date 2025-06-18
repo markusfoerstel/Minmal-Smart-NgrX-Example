@@ -11,19 +11,16 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { instanceEffectsServiceToken } from './instance/instance-effects.service-token';
 import { InstanceEffectsService } from './instance/instanceeffects.service';
+import { expansionEffectsServiceToken } from './expansion/encounter-effects.service-token';
+import { ExpansionEffectsService } from './expansion/expansioneffects.service';
 
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection(),
-    {
-      provide: encounterEffectsServiceToken,
-      useClass: EncounterEffectsService,
-    },
-{
-      provide: instanceEffectsServiceToken,
-      useClass: InstanceEffectsService,
-    },
+    { provide: expansionEffectsServiceToken, useClass: ExpansionEffectsService },
+    { provide: instanceEffectsServiceToken, useClass: InstanceEffectsService },
+    { provide: encounterEffectsServiceToken, useClass: EncounterEffectsService },
     provideHttpClient(),
     importProvidersFrom(
       StoreModule.forRoot({}),

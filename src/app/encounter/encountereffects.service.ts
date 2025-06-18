@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
     providedIn: 'root'
 })
 export class EncounterEffectsService extends EffectService<Encounter> {
-    apiRaces = `https://localhost:8080/api/encounters`;
+    apiEncounters = `https://localhost:8080/api/encounters`;
 
     constructor(private httpClient: HttpClient) {
         super();
@@ -19,22 +19,22 @@ export class EncounterEffectsService extends EffectService<Encounter> {
     // };
     override loadByIds: (ids: string[]) => Observable<Encounter[]> = (ids: string[]) => {
         console.log('EncounterEffectsService.loadByIds', ids);
-        return this.httpClient.post<Encounter[]>(this.apiRaces + '/loadByIds/', ids);
+        return this.httpClient.post<Encounter[]>(this.apiEncounters + '/loadByIds/', ids);
     };
 
     override add(newRow: Encounter): Observable<Encounter[]> {
         console.log('EncounterEffectsService.add', newRow);
-        return this.httpClient.post<Encounter[]>(this.apiRaces, newRow);
+        return this.httpClient.post<Encounter[]>(this.apiEncounters, newRow);
     }
 
     override update(newRow: Encounter): Observable<Encounter[]> {
         console.log('EncounterEffectsService.update', newRow);
-        return this.httpClient.put<Encounter[]>(`${this.apiRaces}/${newRow.id}`, newRow);
+        return this.httpClient.put<Encounter[]>(`${this.apiEncounters}/${newRow.id}`, newRow);
     }
 
     override delete(id: string): Observable<void> {
         console.log('EncounterEffectsService.delete', id);
-        return this.httpClient.delete<undefined>(`${this.apiRaces}/${id}`);
+        return this.httpClient.delete<undefined>(`${this.apiEncounters}/${id}`);
     }
 
     override loadByIndexes(
@@ -45,7 +45,7 @@ export class EncounterEffectsService extends EffectService<Encounter> {
     ): Observable<PartialArrayDefinition> {
         console.log('EncounterEffectsService.loadByIndexes', parentId, childField, startIndex, length);
         return this.httpClient.post<PartialArrayDefinition>(
-            `${this.apiRaces}/indexes`, {
+            `${this.apiEncounters}/indexes`, {
                 parentId,
                 childField,
                 startIndex,

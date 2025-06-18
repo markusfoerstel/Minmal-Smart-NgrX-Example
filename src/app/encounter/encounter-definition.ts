@@ -6,7 +6,6 @@ import { encounterEffectsServiceToken } from './encounter-effects.service-token'
 export const encounterDefinition: SmartEntityDefinition<Encounter> = {
   entityName: 'encounters',
   effectServiceToken: encounterEffectsServiceToken,
-  isInitialRow: true,
   defaultRow: (id) => ({
     id,
     encounter_id: 0,

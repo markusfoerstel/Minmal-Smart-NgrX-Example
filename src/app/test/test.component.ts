@@ -4,6 +4,9 @@ import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { selectEncounters } from '../encounter/encounter.selectors';
 import { Instance } from '../instance/instance';
+import { selectInstancesForCurrentExpansion } from '../instance/instance.selectors';
+import { selectEncountersForCurrentInstance } from '../expansion/expansion.selectors';
+import { Encounter } from '../encounter/encounter';
 
 @Component({
   selector: 'app-test',
@@ -12,9 +15,12 @@ import { Instance } from '../instance/instance';
   styleUrl: './test.component.scss'
 })
 export class TestComponent {
-    encounters$: Observable<Instance[]>;
+    instances$: Observable<Instance[]>;
+    // encounters$: Observable<Encounter[]>;
+
 
     constructor(private store: Store) {
-        this.encounters$ = this.store.select(selectEncounters);
+        this.instances$ = this.store.select(selectInstancesForCurrentExpansion) as Observable<Instance[]>;
+        // this.encounters$ = this.store.select(selectEncountersForCurrentInstance) as Observable<Encounter[]>;
     }
 }

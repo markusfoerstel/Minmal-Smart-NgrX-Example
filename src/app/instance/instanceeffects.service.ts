@@ -8,29 +8,26 @@ import { Observable } from 'rxjs';
     providedIn: 'root'
 })
 export class InstanceEffectsService extends EffectService<Instance> {
-    apiRaces = `https://localhost:8080/api/instances`;
+    apiInstances = `https://localhost:8080/api/instances`;
 
     constructor(private httpClient: HttpClient) {
         super();
     }
 
-    // override loadByIds: (ids: string[]) => Observable<Instance[]> = (ids: string[]) => {
-    //     return this.httpClient.get<Instance[]>(`${this.apiRaces}?id__in=${ids.join(',')}`);
-    // };
     override loadByIds: (ids: string[]) => Observable<Instance[]> = (ids: string[]) => {
-        return this.httpClient.post<Instance[]>(this.apiRaces, ids);
+        return this.httpClient.post<Instance[]>(this.apiInstances, ids);
     };
 
     override add(newRow: Instance): Observable<Instance[]> {
-        return this.httpClient.post<Instance[]>(this.apiRaces, newRow);
+        return this.httpClient.post<Instance[]>(this.apiInstances, newRow);
     }
 
     override update(newRow: Instance): Observable<Instance[]> {
-        return this.httpClient.put<Instance[]>(`${this.apiRaces}/${newRow.id}`, newRow);
+        return this.httpClient.put<Instance[]>(`${this.apiInstances}/${newRow.id}`, newRow);
     }
 
     override delete(id: string): Observable<void> {
-        return this.httpClient.delete<undefined>(`${this.apiRaces}/${id}`);
+        return this.httpClient.delete<undefined>(`${this.apiInstances}/${id}`);
     }
 
     override loadByIndexes(
@@ -40,7 +37,7 @@ export class InstanceEffectsService extends EffectService<Instance> {
         length: number,
     ): Observable<PartialArrayDefinition> {
         return this.httpClient.post<PartialArrayDefinition>(
-            `${this.apiRaces}/indexes`, {
+            `${this.apiInstances}/indexes`, {
                 parentId,
                 childField,
                 startIndex,
