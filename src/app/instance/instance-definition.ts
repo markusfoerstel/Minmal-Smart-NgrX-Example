@@ -17,6 +17,7 @@ export const instanceDefinition: SmartEntityDefinition<Instance> = {
     icon: '',
     short_name: '',
     total_bosses: 0,
+    
     encounters: [] as string[],
   }),
 };

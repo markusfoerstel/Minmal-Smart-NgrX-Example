@@ -3,8 +3,8 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideStore, StoreModule } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
-import { encounterEffectsServiceToken } from './encounter/encounter-effects.service-token';
-import { EncounterEffectsService } from './encounter/encountereffects.service';
+// import { encounterEffectsServiceToken } from './encounter/encounter-effects.service-token';
+// import { EncounterEffectsService } from './encounter/encountereffects.service';
 import { provideSmartNgRX } from '@smarttools/smart-ngrx';
 import { provideHttpClient } from '@angular/common/http';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
@@ -19,7 +19,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection(),
     { provide: expansionEffectsServiceToken, useClass: ExpansionEffectsService },
     { provide: instanceEffectsServiceToken, useClass: InstanceEffectsService },
-    { provide: encounterEffectsServiceToken, useClass: EncounterEffectsService },
+    // { provide: encounterEffectsServiceToken, useClass: EncounterEffectsService },
     provideHttpClient(),
     importProvidersFrom(
       StoreModule.forRoot({}),

@@ -6,7 +6,6 @@ import { Instance } from '../instance/instance';
 export interface Encounter extends SmartNgRXRowBase {
     id: string;
     encounter_id: number;
-    instance: Instance[] | string[];
     name: string;
     order_index: number;
     icon: string;

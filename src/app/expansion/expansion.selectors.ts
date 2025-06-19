@@ -1,5 +1,5 @@
 import { createSmartSelector, getTopChildRows } from '@smarttools/smart-ngrx';
-import { selectInstanceEntities, selectInstanceWithEncounters } from '../instance/instance.selectors';
+import { selectInstanceEntities } from '../instance/instance.selectors';
 import { Expansion } from './expansion';
 import { featureName } from '../shared/shared.feature';
 
@@ -19,8 +19,7 @@ export const selectExpansionWithInstances = createSmartSelector(
   ]
 );
 
-// Flat Encounters
-export const selectEncountersForCurrentInstance = getTopChildRows(
-  selectInstanceWithEncounters,
-  'encounters'
+export const selectInstancesForCurrentExpansion = getTopChildRows(
+  selectExpansionWithInstances,
+  'instances'
 );
