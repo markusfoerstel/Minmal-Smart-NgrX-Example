@@ -11,7 +11,7 @@ export const routes: Routes = [
       return (await import('./test/test.component')).TestComponent;
     },
     providers: [
-      provideSmartFeatureClassicEntities('tree-standard', [
+      provideSmartFeatureClassicEntities('shared', [
         expansionsDefinition,
         instanceDefinition,
         encounterDefinition,

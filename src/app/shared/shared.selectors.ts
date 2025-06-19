@@ -1,10 +1,10 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { TreeStandardState, featureName } from "./tree-standard.feature";
+import { SharedState, featureName } from "./shared.feature";
 
-export const selectTreeStandardState = createFeatureSelector<TreeStandardState>(featureName);
+export const selectSharedState = createFeatureSelector<SharedState>(featureName);
 
 export const selectEncounterEntities = createSelector(
-  selectTreeStandardState,
+  selectSharedState,
   function selectEncounterEntitiesFunction(state) {
     return state.encounters;
   }

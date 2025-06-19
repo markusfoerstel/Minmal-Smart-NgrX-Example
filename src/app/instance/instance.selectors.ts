@@ -1,6 +1,6 @@
 import { createSmartSelector, getTopChildRows } from "@smarttools/smart-ngrx";
 import { Instance } from "./instance";
-import { featureName } from "../tree-standard/tree-standard.feature";
+import { featureName } from "../shared/shared.feature";
 import { selectEncounterEntities } from "../encounter/encounter.selectors";
 import { selectExpansionWithInstances } from "../expansion/expansion.selectors";
 
@@ -28,4 +28,3 @@ export const selectInstancesForCurrentExpansion = getTopChildRows(
   selectExpansionWithInstances,
   'instances'
 );
-

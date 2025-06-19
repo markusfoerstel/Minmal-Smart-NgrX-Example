@@ -1,6 +1,5 @@
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-
 import { routes } from './app.routes';
 import { provideStore, StoreModule } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
@@ -11,8 +10,8 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { instanceEffectsServiceToken } from './instance/instance-effects.service-token';
 import { InstanceEffectsService } from './instance/instanceeffects.service';
-import { expansionEffectsServiceToken } from './expansion/encounter-effects.service-token';
 import { ExpansionEffectsService } from './expansion/expansioneffects.service';
+import { expansionEffectsServiceToken } from './expansion/expansion-effects.service-token';
 
 
 export const appConfig: ApplicationConfig = {

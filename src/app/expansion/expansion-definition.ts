@@ -1,6 +1,6 @@
 import { SmartEntityDefinition } from '@smarttools/smart-ngrx';
 import { Expansion } from './expansion';
-import { expansionEffectsServiceToken } from './encounter-effects.service-token';
+import { expansionEffectsServiceToken } from './expansion-effects.service-token';
 
 export const expansionsDefinition: SmartEntityDefinition<Expansion> = {
   entityName: 'expansions',

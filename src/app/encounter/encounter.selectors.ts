@@ -1,6 +1,6 @@
 import { createSmartSelector, getTopChildRows } from "@smarttools/smart-ngrx";
 import { Encounter } from "./encounter";
-import { featureName } from "../tree-standard/tree-standard.feature";
+import { featureName } from "../shared/shared.feature";
 import { Instance } from "../instance/instance";
 import { selectInstanceEntities } from "../instance/instance.selectors";
 

@@ -5,8 +5,11 @@ import { Observable } from 'rxjs';
 import { selectEncounters } from '../encounter/encounter.selectors';
 import { Instance } from '../instance/instance';
 import { selectInstancesForCurrentExpansion } from '../instance/instance.selectors';
-import { selectEncountersForCurrentInstance } from '../expansion/expansion.selectors';
+import { selectEncountersForCurrentInstance, selectExpansionEntities } from '../expansion/expansion.selectors';
 import { Encounter } from '../encounter/encounter';
+import { Expansion } from '../expansion/expansion';
+import { EntityState } from '@ngrx/entity';
+import { SmartNgRXRowBase } from '@smarttools/smart-ngrx';
 
 @Component({
   selector: 'app-test',
@@ -15,12 +18,13 @@ import { Encounter } from '../encounter/encounter';
   styleUrl: './test.component.scss'
 })
 export class TestComponent {
-    instances$: Observable<Instance[]>;
+    expansions$: Observable<EntityState<SmartNgRXRowBase & Expansion>>;
+    // instances$: Observable<Instance[]>;
     // encounters$: Observable<Encounter[]>;
 
-
     constructor(private store: Store) {
-        this.instances$ = this.store.select(selectInstancesForCurrentExpansion) as Observable<Instance[]>;
-        // this.encounters$ = this.store.select(selectEncountersForCurrentInstance) as Observable<Encounter[]>;
+      this.expansions$ = this.store.select(selectExpansionEntities);
+      // this.instances$ = this.store.select(selectInstancesForCurrentExpansion) as Observable<Instance[]>;
+      // this.encounters$ = this.store.select(selectEncountersForCurrentInstance) as Observable<Encounter[]>;
     }
 }
