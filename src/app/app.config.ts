@@ -12,11 +12,14 @@ import { instanceEffectsServiceToken } from './instance/instance-effects.service
 import { InstanceEffectsService } from './instance/instanceeffects.service';
 import { ExpansionEffectsService } from './expansion/expansioneffects.service';
 import { expansionEffectsServiceToken } from './expansion/expansion-effects.service-token';
+import { topEffectsServiceToken } from './top/top-effects.servie-token';
+import { TopEffectsService } from './top/top.service';
 
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection(),
+    { provide: topEffectsServiceToken, useClass: TopEffectsService },
     { provide: expansionEffectsServiceToken, useClass: ExpansionEffectsService },
     { provide: instanceEffectsServiceToken, useClass: InstanceEffectsService },
     // { provide: encounterEffectsServiceToken, useClass: EncounterEffectsService },

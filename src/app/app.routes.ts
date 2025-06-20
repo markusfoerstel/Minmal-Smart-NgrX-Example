@@ -3,6 +3,7 @@ import { provideSmartFeatureClassicEntities } from '@smarttools/smart-ngrx';
 // import { encounterDefinition } from './encounter/encounter-definition';
 import { instanceDefinition } from './instance/instance-definition';
 import { expansionsDefinition } from './expansion/expansion-definition';
+import { topDefinition } from './top/top-definition';
 
 export const routes: Routes = [
   {
@@ -12,6 +13,7 @@ export const routes: Routes = [
     },
     providers: [
       provideSmartFeatureClassicEntities('shared', [
+        topDefinition,
         expansionsDefinition,
         instanceDefinition,
         // encounterDefinition,

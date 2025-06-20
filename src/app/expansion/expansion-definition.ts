@@ -5,8 +5,6 @@ import { expansionEffectsServiceToken } from './expansion-effects.service-token'
 export const expansionsDefinition: SmartEntityDefinition<Expansion> = {
   entityName: 'expansions',
   effectServiceToken: expansionEffectsServiceToken,
-  // markiert, dass immer genau eine Row automatisch "geladen" (initialisiert) wird
-  isInitialRow: true,
   defaultRow: id => ({
     id,
     name: '',
@@ -14,7 +12,7 @@ export const expansionsDefinition: SmartEntityDefinition<Expansion> = {
     icon: '',
     short_name: '',
     url: '',
-    // hier halten wir später per loadByIndexes die Child-IDs
-    instances: [] as string[],
+
+    instances: [],
   }),
 };

@@ -1,9 +1,8 @@
-import { createSmartSelector, getTopChildRows } from '@smarttools/smart-ngrx';
+import { createSmartSelector } from '@smarttools/smart-ngrx';
 import { selectInstanceEntities } from '../instance/instance.selectors';
-import { Expansion } from './expansion';
 import { featureName } from '../shared/shared.feature';
+import { selectExpansionEntities } from './expansion-entities.selectors';
 
-export const selectExpansionEntities = createSmartSelector<Expansion>(featureName, 'expansions');
 
 export const selectExpansionWithInstances = createSmartSelector(
   selectExpansionEntities,
@@ -17,9 +16,4 @@ export const selectExpansionWithInstances = createSmartSelector(
       childSelector: selectInstanceEntities,
     },
   ]
-);
-
-export const selectInstancesForCurrentExpansion = getTopChildRows(
-  selectExpansionWithInstances,
-  'instances'
 );
